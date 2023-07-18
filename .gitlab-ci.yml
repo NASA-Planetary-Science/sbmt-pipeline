@@ -1,7 +1,7 @@
 stages:
   - build
-#  - verify
-#  - deploy
+  - verify
+  - deploy
 
 variables: 
   JAVA_HOME: "/opt/openjdk17" # Sets Java version to run (see /opt for details)
