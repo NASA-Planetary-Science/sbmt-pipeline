@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.jhuapl.ses.srn.sbmt</groupId>
   <artifactId>sbmt-pipeline</artifactId>
-  <version>1.0.1-b0-SNAPSHOT</version>
+  <version>1.0.1-b1-SNAPSHOT</version>
   <name>sbmt-pipeline</name>
   <description>SBMT Pipeline layer</description>
   <packaging>jar</packaging>
@@ -27,6 +27,12 @@
 	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
   <dependencies>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.10.2</version>
+        <scope>test</scope>
+    </dependency>
  	<dependency>
 		<groupId>org.apache.commons</groupId>
 		<artifactId>commons-lang3</artifactId>
