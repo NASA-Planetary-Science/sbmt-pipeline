@@ -14,8 +14,4 @@ public interface IPipelineSubscriber<InputType extends Object> extends IPipeline
 	public void receive(InputType item) throws IOException, Exception;
 
 	public void setPublisher(IPipelinePublisher<InputType> publisher);
-
-//	public InputType drip();
-//
-//	public List<InputType> flow();
 }

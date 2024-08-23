@@ -25,17 +25,6 @@ public class Publishers<O extends Object> extends BasePipelinePublisher<O>
 		return new Publishers<Object>(outputs);
 	}
 
-//	@SafeVarargs
-//	public static <O extends Object> Publishers<O> zip(IPipelinePublisher<O>... publishers)
-//	{
-//		List<O> outputs = new ArrayList<O>();
-//		for (IPipelinePublisher<O> publisher : publishers)
-//		{
-//			outputs.add(publisher.getOutputs().get(0));
-//		}
-//		return new Publishers<O>(outputs);
-//	}
-
 	@SafeVarargs
 	public static <O extends Object> Publishers<O> merge(IPipelinePublisher<? extends Object>... list)
 	{
@@ -60,9 +49,8 @@ public class Publishers<O extends Object> extends BasePipelinePublisher<O>
 
 	public static <InputType1 extends Object, InputType2 extends Object> IPipelinePublisher<Pair<InputType1, InputType2>> formPair(IPipelinePublisher<InputType1> input1, IPipelinePublisher<InputType2> input2)
 	{
-		BasePipelinePairPublisher<InputType1, InputType2> pub = new BasePipelinePairPublisher<InputType1, InputType2>() {
-
-
+//		BasePipelinePairPublisher<InputType1, InputType2> pub = new BasePipelinePairPublisher<InputType1, InputType2>() {
+			BasePipelinePublisher<Pair<InputType1, InputType2>> pub = new BasePipelinePublisher<Pair<InputType1, InputType2>>() {
 			@Override
 			public List<Pair<InputType1, InputType2>> getOutputs()
 			{
@@ -80,9 +68,10 @@ public class Publishers<O extends Object> extends BasePipelinePublisher<O>
 
 	public static <InputType1 extends Object, InputType2 extends Object, InputType3 extends Object> IPipelinePublisher<Triple<InputType1, InputType2, InputType3>> formTriple(IPipelinePublisher<InputType1> input1, IPipelinePublisher<InputType2> input2, IPipelinePublisher<InputType3> input3)
 	{
-		BasePipelineTriplePublisher<InputType1, InputType2, InputType3> pub = new BasePipelineTriplePublisher<InputType1, InputType2, InputType3>() {
+//		BasePipelineTriplePublisher<InputType1, InputType2, InputType3> pub = new BasePipelineTriplePublisher<InputType1, InputType2, InputType3>() {
 
-
+		BasePipelinePublisher<Triple<InputType1, InputType2, InputType3>> pub = new BasePipelinePublisher<Triple<InputType1, InputType2, InputType3>>() {
+			
 			@Override
 			public List<Triple<InputType1, InputType2, InputType3>> getOutputs()
 			{

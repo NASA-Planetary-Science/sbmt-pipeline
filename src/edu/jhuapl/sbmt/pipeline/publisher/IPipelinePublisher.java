@@ -7,7 +7,7 @@ import edu.jhuapl.sbmt.pipeline.IPipelineComponent;
 import edu.jhuapl.sbmt.pipeline.operator.IPipelineOperator;
 import edu.jhuapl.sbmt.pipeline.subscriber.IPipelineSubscriber;
 
-public interface IPipelinePublisher<OutputType extends Object> extends IPipelineComponent //, IPipelineSpigot<OutputType>
+public interface IPipelinePublisher<OutputType extends Object> extends IPipelineComponent
 {
 	public void publish() throws IOException, Exception;
 

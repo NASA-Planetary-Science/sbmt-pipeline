@@ -8,9 +8,8 @@ import com.beust.jcommander.internal.Lists;
 import edu.jhuapl.sbmt.pipeline.operator.IPipelineOperator;
 import edu.jhuapl.sbmt.pipeline.subscriber.IPipelineSubscriber;
 
-public class BasePipelinePublisher<O extends Object> implements IPipelinePublisher<O>
+public abstract class BasePipelinePublisher<O extends Object> implements IPipelinePublisher<O>
 {
-
 	protected List<O> outputs;
 	protected IPipelineSubscriber<O> subscriber;
 
@@ -19,21 +18,12 @@ public class BasePipelinePublisher<O extends Object> implements IPipelinePublish
 		outputs = Lists.newArrayList();
 	}
 
-
 	@Override
 	public BasePipelinePublisher<O> run() throws IOException, Exception
 	{
 		publish();
 		return this;
 	}
-
-//	@Override
-//	public BasePipelinePublisher<O> run(Runnable completion) throws IOException, Exception
-//	{
-//		publish();
-//		completion.run();
-//		return this;
-//	}
 
 	@Override
 	public void publish() throws IOException, Exception
@@ -68,18 +58,4 @@ public class BasePipelinePublisher<O extends Object> implements IPipelinePublish
 		this.subscriber.setPublisher(this);
 		return operator;
 	}
-
-
-//	@Override
-//	public O drip()
-//	{
-//		return outputs.get(0);
-//	}
-//
-//
-//	@Override
-//	public List<O> flow()
-//	{
-//		return outputs;
-//	}
 }
