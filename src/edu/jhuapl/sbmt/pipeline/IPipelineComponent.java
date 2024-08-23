@@ -2,13 +2,17 @@ package edu.jhuapl.sbmt.pipeline;
 
 import java.io.IOException;
 
+/**
+ * Generic pipeline component interface
+ */
 public interface IPipelineComponent
 {
-//	public IPipelineComponent run(IPipelineSpigot completion) throws IOException, Exception;
-
+	/**
+	 * The method that causes this component to process its data. 
+	 * 
+	 * @return
+	 * @throws IOException
+	 * @throws Exception
+	 */
 	public IPipelineComponent run() throws IOException, Exception;
-
-//	public O drip();
-//
-//	public List<O> flow();
 }

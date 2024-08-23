@@ -7,16 +7,47 @@ import org.apache.commons.lang3.tuple.Triple;
 
 import edu.jhuapl.sbmt.pipeline.publisher.IPipelinePublisher;
 
+/**
+ * Similar to a <code>Sink</code>, but holds a triple of values.
+ * 
+ * @param <L>
+ * @param <M>
+ * @param <R>
+ * @param <O>
+ */
 public class TripleSink<L extends Object, M extends Object, R extends Object, O extends Object> implements IPipelineSubscriber<Triple<L, M, R>>
 {
+	/**
+	 * The publisher for this subscriber
+	 */
 	private IPipelinePublisher<Triple<L, M, R>> publisher;
+	
+	/**
+	 * The array of triples representing the outputs of this <code>TripleSink</code>
+	 */
 	private Triple<L, M, R>[] outputs;
+	
 
+	/**
+	 * Static helper method to build a <p>TripleSink</p>
+	 * 
+	 * @param <L>
+	 * @param <M>
+	 * @param <R>
+	 * @param <O>
+	 * @param outputs
+	 * @return
+	 */
 	public static <L extends Object, M extends Object, R extends Object, O extends Object> TripleSink<L, M, R, O> of(Triple<L, M, R>[] outputs)
 	{
 		return new TripleSink<L, M, R, O>(outputs);
 	}
 
+	/**
+	 * Constructor that takes in an array of triples to build the TripleSink
+	 * 
+	 * @param outputs
+	 */
 	public TripleSink(Triple<L, M, R>[] outputs)
 	{
 		this.outputs = outputs;

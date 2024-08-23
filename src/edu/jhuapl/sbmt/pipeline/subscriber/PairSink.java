@@ -7,16 +7,45 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import edu.jhuapl.sbmt.pipeline.publisher.IPipelinePublisher;
 
+/**
+ * Similar to a <code>Sink</code>, but holds a pair of values.
+ * 
+ * @param <L>
+ * @param <R>
+ * @param <O>
+ */
 public class PairSink<L extends Object, R extends Object, O extends Object> implements IPipelineSubscriber<Pair<L, R>>
 {
+	/**
+	 * The publisher for this subscriber
+	 */
 	private IPipelinePublisher<Pair<L, R>> publisher;
+	
+	
+	/**
+	 * The array of pairs representing the outputs of this <code>PairSink</code>
+	 */
 	private Pair<L, R>[] outputs;
 
+	/**
+	 * Static helper method to build a <p>PairSink</p>
+	 * 
+	 * @param <L>
+	 * @param <R>
+	 * @param <O>
+	 * @param outputs
+	 * @return
+	 */
 	public static <L extends Object, R extends Object, O extends Object> PairSink<L, R, O> of(Pair<L, R>[] outputs)
 	{
 		return new PairSink<L, R, O>(outputs);
 	}
 
+	/**
+	 * Constructor that takes in an array of Pairs to build the PairSink
+	 * 
+	 * @param outputs
+	 */
 	public PairSink(Pair<L, R>[] outputs)
 	{
 		this.outputs = outputs;

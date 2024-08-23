@@ -7,12 +7,33 @@ import java.util.List;
 import edu.jhuapl.sbmt.pipeline.publisher.IPipelinePublisher;
 import edu.jhuapl.sbmt.pipeline.subscriber.IPipelineSubscriber;
 
+/**
+ * A base pipeline operator class that can be used as a parent class for more concrete implementations.  
+ * 
+ * @param <InputType>
+ * @param <OutputType>
+ */
 public class BasePipelineOperator<InputType, OutputType> implements IPipelineOperator<InputType, OutputType>
 {
+	/**
+	 * The list of inputs from the publisher
+	 */
 	protected List<InputType> inputs;
+	
+    /**
+     * The outputs to emit to the subscriber
+     */
     protected List<OutputType> outputs = new ArrayList<OutputType>();
-	protected IPipelinePublisher<InputType> publisher;
-	protected IPipelineSubscriber<OutputType> subscriber;
+	
+    /**
+     * The publisher that is sending information to this operator
+     */
+    protected IPipelinePublisher<InputType> publisher;
+	
+    /**
+     * The subscriber that will receive information emitted from this operator.
+     */
+    protected IPipelineSubscriber<OutputType> subscriber;
 
 
 	@Override

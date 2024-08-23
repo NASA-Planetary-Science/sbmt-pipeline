@@ -8,10 +8,22 @@ import com.beust.jcommander.internal.Lists;
 import edu.jhuapl.sbmt.pipeline.operator.IPipelineOperator;
 import edu.jhuapl.sbmt.pipeline.subscriber.IPipelineSubscriber;
 
-public class BasePipelinePublisher<O extends Object> implements IPipelinePublisher<O>
+/**
+ * A base pipeline publisher class that can be used as a parent class for more concrete implementations.  
+ * 
+ * @param <O>
+ */
+public abstract class BasePipelinePublisher<O extends Object> implements IPipelinePublisher<O>
 {
-
+	/**
+	 * The list of items that will get emitted by this publisher.
+	 */
 	protected List<O> outputs;
+
+	
+	/**
+	 * The subscriber that will receive the outputs from this publisher
+	 */
 	protected IPipelineSubscriber<O> subscriber;
 
 	public BasePipelinePublisher()
@@ -19,21 +31,12 @@ public class BasePipelinePublisher<O extends Object> implements IPipelinePublish
 		outputs = Lists.newArrayList();
 	}
 
-
 	@Override
 	public BasePipelinePublisher<O> run() throws IOException, Exception
 	{
 		publish();
 		return this;
 	}
-
-//	@Override
-//	public BasePipelinePublisher<O> run(Runnable completion) throws IOException, Exception
-//	{
-//		publish();
-//		completion.run();
-//		return this;
-//	}
 
 	@Override
 	public void publish() throws IOException, Exception
@@ -68,18 +71,4 @@ public class BasePipelinePublisher<O extends Object> implements IPipelinePublish
 		this.subscriber.setPublisher(this);
 		return operator;
 	}
-
-
-//	@Override
-//	public O drip()
-//	{
-//		return outputs.get(0);
-//	}
-//
-//
-//	@Override
-//	public List<O> flow()
-//	{
-//		return outputs;
-//	}
 }
