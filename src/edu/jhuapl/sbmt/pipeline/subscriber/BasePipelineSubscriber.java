@@ -5,11 +5,19 @@ import java.util.List;
 
 import edu.jhuapl.sbmt.pipeline.publisher.IPipelinePublisher;
 
+/**
+ * A base pipeline subscriber class that can be used as a parent class for more concrete implementations.  
+ * 
+ * @param <O>
+ */
 public abstract class BasePipelineSubscriber<O extends Object> implements IPipelineSubscriber<O>
 {
 	protected IPipelinePublisher<O> publisher;
 	protected List<O> outputs;
 
+	/**
+	 * Empty constructor
+	 */
 	public BasePipelineSubscriber()
 	{
 		// TODO Auto-generated constructor stub

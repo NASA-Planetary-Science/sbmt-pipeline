@@ -8,9 +8,22 @@ import com.beust.jcommander.internal.Lists;
 import edu.jhuapl.sbmt.pipeline.operator.IPipelineOperator;
 import edu.jhuapl.sbmt.pipeline.subscriber.IPipelineSubscriber;
 
+/**
+ * A base pipeline publisher class that can be used as a parent class for more concrete implementations.  
+ * 
+ * @param <O>
+ */
 public abstract class BasePipelinePublisher<O extends Object> implements IPipelinePublisher<O>
 {
+	/**
+	 * The list of items that will get emitted by this publisher.
+	 */
 	protected List<O> outputs;
+
+	
+	/**
+	 * The subscriber that will receive the outputs from this publisher
+	 */
 	protected IPipelineSubscriber<O> subscriber;
 
 	public BasePipelinePublisher()
