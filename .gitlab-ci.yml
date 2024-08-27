@@ -6,7 +6,7 @@ stages:
 variables: 
   JAVA_HOME: "/opt/openjdk17" # Sets Java version to run (see /opt for details)
   # Sets the artifact cache to a local directory within build area
-  MAVEN_CLI_OPTS: "-Pinternal -DprofileIdEnabled=true -Dmaven.repo.local=../.m2/repository --batch-mode -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN"
+  MAVEN_CLI_OPTS: "-DprofileIdEnabled=true -Dmaven.repo.local=../.m2/repository --batch-mode -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -P internal"
 
 #Workflow rules that filters across the entire pipeline. Cleaner than -o ci.skip since there won't be a "skipped" pipeline. 
 workflow: 
@@ -49,7 +49,7 @@ maven deploy:
     # Again, -fn might be necessary here if artifacts are to be deployed even when unit tests fail
     # -DskipTests will not execute unit tests, this should allow the artifact to be deployed if unit tests fail in the previous stage
     # -Dmaven.test.skip=true will also stop the unit tests from being compiled--which potentially would speed this up
-    - mvn -X -e $MAVEN_CLI_OPTS -DskipTests clean deploy
+    - mvn $MAVEN_CLI_OPTS -DskipTests clean deploy
   rules:
   - if: '$GITLAB_USER_LOGIN != $RUNNER_USER_LOGIN && $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE == "push"'
     when: manual
