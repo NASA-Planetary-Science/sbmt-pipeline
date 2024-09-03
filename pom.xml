@@ -6,6 +6,12 @@
   <name>sbmt-pipeline</name>
   <description>SBMT Pipeline layer</description>
   <packaging>jar</packaging>
+  
+  <parent>
+    <groupId>edu.jhuapl.ses.sbmt</groupId>
+    <artifactId>sbmt-overview</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
 
   <url>https://github.com/NASA-Planetary-Science/sbmt-pipeline</url>
   
@@ -244,7 +250,7 @@
     <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
-        <version>5.10.2</version>
+<!--        <version>5.10.2</version>-->
         <scope>test</scope>
     </dependency>
     <dependency>
@@ -255,7 +261,7 @@
     <dependency>
         <groupId>com.beust</groupId>
         <artifactId>jcommander</artifactId>
-        <version>1.82</version>
+<!--        <version>1.82</version>-->
     </dependency>
   </dependencies>
 </project>
