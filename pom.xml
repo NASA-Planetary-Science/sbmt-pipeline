@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>edu.jhuapl.ses.sbmt</groupId>
   <artifactId>sbmt-pipeline</artifactId>
   <version>1.0.0</version>
   <name>sbmt-pipeline</name>
@@ -15,36 +14,6 @@
 
   <url>https://github.com/NASA-Planetary-Science/sbmt-pipeline</url>
   
-  <inceptionYear>2023</inceptionYear>
-  <organization>
-    <name>Johns Hopkins University Applied Physics Lab</name>
-    <url>https://www.jhuapl.edu</url>
-  </organization>
-  
-  <licenses>
-     <license>
-       <name>MIT License</name>
-       <url>https://opensource.org/license/mit/</url>
-     </license>
-  </licenses>
-
-  <developers>
-    <developer>
-        <id>james-peachey</id>
-        <name>James Peachey</name>
-        <email>James.Peachey@jhuapl.edu</email>
-        <organization>JHUAPL</organization>
-        <organizationUrl>https://www.jhuapl.edu/</organizationUrl>
-    </developer>
-    <developer>
-        <id>joshsteeleAPL</id>
-        <name>Josh Steele</name>
-        <email>Josh.Steele@jhuapl.edu</email>
-        <organization>JHUAPL</organization>
-        <organizationUrl>https://www.jhuapl.edu/</organizationUrl>
-    </developer>
-  </developers>
-  
   <scm>
     <connection>scm:git:https://github.com/NASA-Planetary-Science/sbmt-pipeline/sbmt-pipeline.git</connection>
     <url>https://github.com/NASA-Planetary-Science/sbmt-pipeline/sbmt-pipeline.git</url>
@@ -58,11 +27,6 @@
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
-  
-  <properties>
-	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
   
   <profiles>
         <profile>
@@ -250,7 +214,6 @@
     <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
-<!--        <version>5.10.2</version>-->
         <scope>test</scope>
     </dependency>
     <dependency>
@@ -261,7 +224,6 @@
     <dependency>
         <groupId>com.beust</groupId>
         <artifactId>jcommander</artifactId>
-<!--        <version>1.82</version>-->
     </dependency>
   </dependencies>
 </project>
